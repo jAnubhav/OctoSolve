@@ -1,0 +1,22 @@
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: "poppins";
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.jc-cen {
+    justify-content: center;
+}
+
+.p-10 {
+    padding: 10px;
+}
+
+.br-10 {
+    border-radius: 10px;
+}

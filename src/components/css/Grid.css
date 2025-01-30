@@ -1,0 +1,12 @@
+#main-grid {
+    display: grid; gap: 2px;
+    grid-template-columns: repeat(3, 1fr);
+    background: #000;
+}
+
+.cell {
+    position: relative;
+    width: 100px;
+    aspect-ratio: 1;
+    background: red;
+}

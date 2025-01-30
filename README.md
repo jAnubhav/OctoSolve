@@ -1,1 +1,1 @@
-# Octo-Solve
+# OctoSolve
