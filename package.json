@@ -1,15 +1,22 @@
 {
 	"name": "octosolve",
 	"version": "1.0.0",
-	"description": "An 8-piece puzzle game is a sliding tile game where players rearrange eight tiles within a 3×3 grid to achieve a specific goal, typically in numerical order",
+	"description": "An 8-piece puzzle game is a sliding tile game, where players rearrange eight tiles within a 3x3 grid to achieve a specific goal, typically in numerical order.",
 	"main": "index.js",
 	"scripts": {
-		"start": "vite",
+		"start": "vite --host",
 		"build": "vite build"
 	},
+	"keywords": [
+		"game",
+		"puzzle",
+		"8-piece-puzzle",
+		"grid"
+	],
 	"author": "Anubhav Jain",
 	"license": "ISC",
 	"dependencies": {
+		"@vitejs/plugin-react": "^4.3.4",
 		"react": "^19.0.0",
 		"react-dom": "^19.0.0",
 		"vite": "^6.0.11"

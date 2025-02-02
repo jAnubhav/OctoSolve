@@ -1,3 +1,5 @@
 #container {
+    justify-content: space-around;
     height: 100dvh;
+    background: var(--dark2);
 }

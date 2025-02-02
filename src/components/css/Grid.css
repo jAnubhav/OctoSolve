@@ -1,12 +1,17 @@
 #main-grid {
-    display: grid; gap: 2px;
-    grid-template-columns: repeat(3, 1fr);
-    background: #000;
+    position: relative;
+    width: 304px;
+    aspect-ratio: 1;
+    background: var(--dark3);
 }
 
 .cell {
-    position: relative;
+    position: absolute;
     width: 100px;
     aspect-ratio: 1;
-    background: red;
+    background: #ff2e2e;
+
+    font-size: 1.5em;
+    font-weight: 600;
+    color: var(--light2);
 }

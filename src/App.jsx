@@ -6,11 +6,11 @@ import "./css/App.css"
 
 const App = () => {
     return (
-        <section className="d-flex jc-cen" id="container">
-            <section className="d-flex jc-cen"> <Grid /> </section>
-            <section className="d-flex"></section>
+        <section className="d-flex" id="container">
+            <section><Grid /></section>
+            <section></section>
         </section>
-    );
+    )
 };
 
 export default App;

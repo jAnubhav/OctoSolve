@@ -1,39 +1,36 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./css/Grid.css";
 
 const Grid = () => {
-    const grid = Array.from(Array(9).keys()); grid[8] = -1;
-    const states = [], cells = []; let blank = [2, 2];
+    const grid = [[1, 2, 3], [4, 5, 6], [7, 8, -1]];
+    const cells = [], states = []; let blank = [2, 2];
 
-    const arw = { "Up": 0, "Down": 1, "Left": 2, "Right": 3 };
-    const dir = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+    const y = [1, -1, 0, 0], x = [0, 0, 1, -1];
+    const arw = { "U": 0, "D": 1, "L": 2, "R": 3 };
 
-    for (let i = 0; i < 8; i++) {
-        const [cell, change] = useState({ top: 0, left: 0 });
+    useEffect(() => {
+        const handleEvent = ind => {
+            const r = blank[0] + y[ind], c = blank[1] + x[ind];
+            if (r < 0 || c < 0 || 2 < r || 2 < c) return;
 
-        states.push([cell, change]); cells.push(
-            <div key={i} style={cell} 
-                className="d-flex jc-cen br-10 cell"
-            >{i + 1}</div>
-        );
-    };
+            states[grid[r][c] - 1][1]({ top: blank[0] * 102, left: blank[1] * 102 });
+            grid[blank[0]][blank[1]] = grid[r][c]; blank = [r, c]; grid[r][c] = -1;
+        };
 
-    window.addEventListener("keydown", event => {
-        const k = dir[arw[event.key.substring(5)]];
-        const [r, c] = [blank[0] + k[0], blank[1] + k[1]];
+        window.addEventListener("keydown", e => {
+            let s = e.key; if (s.startsWith("Arrow")) handleEvent(arw[s.charAt(5)]);
+        });
+    }, []);
 
-        if (0 <= r && 0 <= c && r < 3 && c < 3) {
-            const dis = r * 3 + c, [cell, change] = states[grid[dis]];
-            
-            change({ top: cell.top - k[0] * 102, left: cell.left - k[1] * 102});
-            grid[blank[0] * 3 + blank[1]] = grid[dis]; blank = [r, c]; grid[dis] = -1;
-        }
-    });
+    for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) {
+        let state = useState({ top: i * 102, left: j * 102 });
 
-    return (
-        <section className="br-10" id="main-grid">{cells}</section>
-    )
+        cells.push(<div key={i * 3 + j} className="d-flex jc-cen br-10 cell"
+            style={state[0]}>{i * 3 + j + 1}</div>); states.push(state);
+    } cells.pop(); states.pop();
+
+    return (<section id="main-grid" className="d-flex br-10">{cells}</section>);
 };
 
 export default Grid;
