@@ -1,0 +1,9 @@
+#container {
+    height: 100dvh;
+    background: var(--dark2);
+}
+
+#grid-container {
+    padding: 15px;
+    background: var(--dark1);
+}
