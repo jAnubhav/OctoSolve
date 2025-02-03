@@ -1,36 +1,37 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+
+import { GridContext } from "../contexts/GridContext";
+import Cell from "./Cell";
 
 import "./css/Grid.css";
 
 const Grid = () => {
-    const grid = [[1, 2, 3], [4, 5, 6], [7, 8, -1]];
-    const cells = [], states = [], arw = { "U": 0, "D": 1, "L": 2, "R": 3 };
+    const { n, size, mar, m, dis, blk, setBlk, grid, setGrid } = useContext(GridContext);
 
-    const y = [1, -1, 0, 0], x = [0, 0, 1, -1]; let blk = [2, 2];
-    const size = 110, mar = 5, dis = size + mar, fit = size * 3 + mar * 2;
+    const cells = [], states = [],  arw = { 'U': 0, 'D': 1, 'L': 2, 'R': 3 };
+    const y = [1, -1, 0, 0], x = [0, 0, 1, -1], gSize = size * n + mar * (n - 1);
 
     const handleEvent = ind => {
-        let r = blk[0] + y[ind], c = blk[1] + x[ind];
+        let [r, c] = blk, i = r + y[ind], j = c + x[ind];
 
-        if (0 <= r && r <= 2 && 0 <= c && c <= 2) {
-            states[grid[r][c] - 1][1]({ top: blk[0] * dis, left: blk[1] * dis });
-            grid[blk[0]][blk[1]] = grid[r][c]; blk = [r, c]; grid[r][c] = -1;
+        if (0 <= i && i < n && 0 <= j && j < n) {
+            // states[grid[i][j] - 1][1]({ top: r * dis, left: c * dis });
+            grid[r][c] = grid[i][j]; grid[i][j] = 0; setGrid(grid); 
+            setBlk([i, j]);
         }
     };
 
     useEffect(() => window.addEventListener("keydown", event => {
-        let s = event.key; if (s.startsWith("Arrow")) handleEvent(arw[s.charAt(5)]);
+        const k = event.key; if (k.startsWith("Arrow")) handleEvent(arw[k.charAt(5)]);
     }), []);
 
-    for (let i = 0; i < 3; i++) for (let j = 0; j < 3; j++) if (i * 3 + j != 8) {
-        let state = useState({ top: i * dis, left: j * dis }); states.push(state);
-
-        cells.push(<div key={i * 3 + j} className="d-flex jc-cen br-10 cell"
-            style={{ width: size, ...state[0] }}>{i * 3 + j + 1}</div>);
+    for (let i = 0; i < n; i++) for (let j = 0; j < n; j++) if (i * n + j + 1 != m) {
+        let state = useState({ top: i * dis, left: j * dis }), val = i * n + j + 1;
+        states.push(state); cells.push(<Cell key={val} state={state} value={val} />);
     }
 
     return (
-        <div id="grid" className="d-flex br-10" style={{ width: fit }}>{cells}</div>
+        <section className="br-10" id="main-grid" style={{ width: gSize }}>{cells}</section>
     );
 };
 

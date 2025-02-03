@@ -1,17 +1,21 @@
-#grid {
+#main-grid {
     position: relative;
-    aspect-ratio: 1;
-    background: var(--dark3);
+    background: var(--dark2);
 }
 
 .cell {
     position: absolute;
-    aspect-ratio: 1;
-    background: #ff2e2e;
-
-    font-size: 1.75em;
+    background: var(--red);
+    color: var(--dark1);
+    
+    font-size: 1.8em;
     font-weight: 600;
-    color: var(--light2);
+    border: none;
 
-    transition: .3s;
+    transition: .5s;
+    cursor: pointer;
+}
+
+#main-grid, .cell {
+    aspect-ratio: 1;
 }

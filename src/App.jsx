@@ -1,15 +1,20 @@
 import React from "react";
 
+import { GridContainer } from "./contexts/GridContext";
 import Grid from "./components/Grid";
 
-import "./css/App.css"
+import { n, size, mar } from "./params";
+
+import "./css/App.css";
 
 const App = () => {
     return (
-        <section className="d-flex" id="container">
-            <section className="br-10" id="grid-container"> <Grid /> </section>
-        </section>
-    )
+        <GridContainer n={n} size={size} mar={mar}>
+            <section className="d-flex jc-cen" id="container">
+                <section className="br-10" id="grid-container"> <Grid /> </section>
+            </section>
+        </GridContainer>
+    );
 };
 
 export default App;
