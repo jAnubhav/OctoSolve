@@ -5,6 +5,4 @@ import App from "./App";
 
 import "./css/index.css";
 
-const root = createRoot(
-    document.querySelector("div")
-); root.render(<App />);
+createRoot(document.querySelector("div")).render(<App />);

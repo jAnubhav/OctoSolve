@@ -9,11 +9,11 @@ import "./css/App.css";
 
 const App = () => {
     return (
-        <GridContainer n={n} size={size} mar={mar}>
-            <section className="d-flex jc-cen" id="container">
-                <section className="br-10" id="grid-container"> <Grid /> </section>
+        <section className="d-flex jc-cen" id="container">
+            <section className="br-10" id="grid-container">
+                <GridContainer n={n} size={size} mar={mar}> <Grid /> </GridContainer>
             </section>
-        </GridContainer>
+        </section>
     );
 };
 
