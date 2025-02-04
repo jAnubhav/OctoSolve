@@ -1,0 +1,12 @@
+.title {
+    font-size: 2.6em;
+    font-family: "Rubik Gemstones";
+}
+
+.my-card {
+    width: 18vw;
+}
+
+.my-card > img {
+    width: 100%;
+}

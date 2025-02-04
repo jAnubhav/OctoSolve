@@ -1,0 +1,32 @@
+:root {
+    --dark1: #191919;
+    --dark2: #272727;
+
+    --white: #ffffff;
+}
+
+* {
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+}
+
+.jc-cen {
+    justify-content: center;
+}
+
+.bg-dark1 {
+    background: var(--dark1);
+}
+
+.bg-dark2 {
+    background: var(--dark2);
+}
+
+.br-10 {
+    border-radius: 10px;
+}

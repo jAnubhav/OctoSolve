@@ -1,7 +1,7 @@
 {
-	"name": "octosolve",
+	"name": "tileshift",
 	"version": "1.0.0",
-	"description": "An 8-piece puzzle game is a sliding tile game, where players rearrange eight tiles within a 3x3 grid to achieve a specific goal, typically in numerical order.",
+	"description": "It is a sliding tile game, where players rearrange tiles within an nxn grid to achieve a specific goal, typically in numerical order.",
 	"main": "index.js",
 	"scripts": {
 		"start": "vite --host",
