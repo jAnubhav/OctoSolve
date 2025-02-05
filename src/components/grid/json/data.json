@@ -1,0 +1,17 @@
+{
+    "3": {
+        "width": 100,
+        "color": "red",
+        "fontSize": "2em"
+    },
+    "4": {
+        "width": 90,
+        "color": "blue",
+        "fontSize": "1.8em"
+    },
+    "5": {
+        "width": 75,
+        "color": "green",
+        "fontSize": "1.5em"
+    }
+}
