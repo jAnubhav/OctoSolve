@@ -13,8 +13,7 @@ const App = () => {
     const [disV, setDisV] = useState(""), grids = [], gridsVis = [];
 
     for (let i = 0; i < 3; i++) {
-        const visibility = useState("hidden"); gridsVis.push(visibility);
-        grids.push(<Grid n={i + 3} visibility={visibility} />);
+        const vis = useState("hidden"); gridsVis.push(vis); grids.push(<Grid n={i + 3} vis={vis} />);
     }
 
     return (
