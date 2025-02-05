@@ -1,0 +1,17 @@
+.main-grid {
+    position: relative;
+}
+
+.cell {
+    position: absolute;
+    background: var(--red);
+
+    font-size: 1.4em;
+    font-weight: 500;
+
+    transition: .5s;
+}
+
+.main-grid, .cell {
+    aspect-ratio: 1;
+}
