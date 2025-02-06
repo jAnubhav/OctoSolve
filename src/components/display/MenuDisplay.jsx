@@ -1,19 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import { VisContext } from "../../contexts/VisContext";
 
 import Card from "./ChoiceCard";
 
 import "./css/Menu.css";
 
 const MenuDisplay = () => {
-    const tags = ["Beginner", "Intermediate", "Advanced"];
-    
-    const cards = [...Array(3)].map((_, i) =>
-        <Card key={i} tag={tags[i]} n={i + 3} />);
+    const { disV } = useContext(VisContext), cards = [];
+
+    ["Beginner", "Intermediate", "Advanced"].map((e, i) =>
+        cards.push(<Card key={i} tag={e} dim={i + 3} />));
 
     return (
-        <section className="p-5 bg-dark1 br-10">
-            <p className="text-center text-light title">TileShift</p>
-            <section className="d-flex gap-5">{cards}</section>
+        <section className={`d-flex jc-cen bg-dark2 screen ${disV}`}>
+            <section className="p-5 bg-dark1 br-10">
+                <p className="text-center text-light title">TileShift</p>
+                <section className="d-flex gap-5">{cards}</section>
+            </section>
         </section>
     );
 };
