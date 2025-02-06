@@ -2,15 +2,14 @@
     --dark1: #191919;
     --dark2: #272727;
 
-    --white: #ffffff;
-
     --red: #fc2b2b;
     --blue: #2c7ef4;
     --green: #00bf63;
 }
 
 * {
-    margin: 0; padding: 0;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
@@ -33,4 +32,20 @@
 
 .br-10 {
     border-radius: 10px;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100dvw;
+    height: 100dvh;
+
+    transition: .7s;
+}
+
+.hidden {
+    opacity: 0;
+    pointer-events: none;
 }
