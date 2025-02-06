@@ -7,3 +7,9 @@
     font-weight: 600;
     font-size: 1em;
 }
+
+.my-btn {
+    background: var(--red);
+    color: var(--dark1);
+    font-weight: 500;
+}
