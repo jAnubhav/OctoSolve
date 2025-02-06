@@ -4,7 +4,7 @@ import VisContext from "../../contexts/VisContext";
 import { GridContext } from "../../contexts/GridContext";
 
 const Cell = props => {
-    const n = props.n, m = n * n, { gridsVis, setWinV, size, up, setUp } = useContext(VisContext);
+    const n = props.n, m = n * n, { gridsVis, setWinV, size } = useContext(VisContext);
     const { blk, setBlk, grid, setGrid } = useContext(GridContext);
 
     const [state, setState] = props.state;
@@ -31,13 +31,13 @@ const Cell = props => {
         }
 
         if (validateGrid()) { 
-            setUp(0); setTimeout(() => gridsVis[n - 3][1]("hidden"), 700); setTimeout(() => setWinV(""), 1500); 
+            setTimeout(() => gridsVis[n - 3][1]("hidden"), 700); setTimeout(() => setWinV(""), 1500); 
         }
     }
 
     useEffect(() => {
-        if (size == n && up == 1) { const [i, j] = find(); update(i, j); }
-    }, [up]);
+        if (size == n) { const [i, j] = find(); update(i, j); }
+    }, [size]);
 
     return (
         <button className="d-flex jc-cen text-dark border-0 br-10 cell" onClick={clicked}

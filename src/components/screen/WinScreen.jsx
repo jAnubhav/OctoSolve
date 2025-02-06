@@ -5,9 +5,11 @@ import VisContext from "../../contexts/VisContext";
 import "./css/WinScreen.css";
 
 const WinScreen = () => {
-    const { setDisV, gridsVis, size, setSize, setWinV, setUp } = useContext(VisContext);
+    const { setDisV, setSize, setWinV } = useContext(VisContext);
 
-    const playAgain = () => { setWinV("hidden"); setTimeout(() => setDisV(""), 700); }
+    const playAgain = () => {
+        setWinV("hidden"); setSize(-1); setTimeout(() => setDisV(""), 700);
+    }
 
     return (
         <section className="px-5 py-4 bg-dark1 br-10">

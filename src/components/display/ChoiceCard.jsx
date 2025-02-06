@@ -4,7 +4,7 @@ import VisContext from "../../contexts/VisContext";
 import { GridContext } from "../../contexts/GridContext";
 
 const Card = props => {
-    const { setDisV, gridsVis, setSize, setUp } = useContext(VisContext);
+    const { setDisV, gridsVis, setSize } = useContext(VisContext);
     const { setGrid, setBlk } = useContext(GridContext);
 
     const n = props.n, m = n * n, dims = `${n}x${n}`, y = [1, -1, 0, 0], x = [0, 0, 1, -1];
@@ -21,7 +21,7 @@ const Card = props => {
             }
         }
 
-        setDisV("hidden"); setBlk([r, c]); setGrid(grid); setUp(1);
+        setDisV("hidden"); setBlk([r, c]); setGrid(grid);
         setSize(n); setTimeout(() => gridsVis[n - 3][1](""), 700);
     }
 
